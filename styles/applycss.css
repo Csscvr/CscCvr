@@ -1,0 +1,182 @@
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+h1, h2 {
+  font-weight: bold;
+  color: #00698f;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #00698f;
+}
+
+a:hover {
+  color: #003d5b;
+}
+
+input, textarea, select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Header Styles */
+
+header {
+  background-color: #00698f;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  color: white;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* Main Styles */
+
+main {
+  padding: 20px;
+}
+
+.apply-form {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+/* Button Styles */
+
+.button {
+  background-color: #007caa;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #23527c;
+}
+
+/* Footer Styles */
+
+footer {
+  background-color: #00698f;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  clear: both;
+}
+
+footer p {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.hero {
+  background-image: linear-gradient(to bottom, #00698f, #003d5b);
+  background-size: 100% 100%; /* Change the height to 100% */
+  background-position: 0% 100%;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  width: 110%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  margin-top: -20px; /* Overlap with the header */
+  border-radius: 0 0 10px 10px; /* Add a border radius to the bottom corners */
+  overflow: hidden; /* Add overflow hidden to prevent the background from bleeding out */
+}
+
+.hero h2 {
+  color: white;
+  font-size: 36px;
+  display: block; /* Add this */
+}
+
+.hero p {
+  font-size: 18px;
+  display: block; /* Add this */
+  clear: both; /* Add this */
+}
+.hero nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.hero nav ul li {
+  margin-right: 200px;
+}
+
+.hero nav a {
+  color: white;
+  text-decoration: none;
+}

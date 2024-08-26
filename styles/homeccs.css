@@ -1,0 +1,389 @@
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Open Sans, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  color: #00698f;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #7ccae6;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #7ccae6;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #000000;
+}
+
+p {
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #00698f;
+}
+
+a:hover {
+  color: #003d5b;
+}
+
+button {
+  background-color: #00698f;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #003d5b;
+}
+
+.button {
+  background-color: #00597a;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #003d5b;
+}
+
+/* Header Styles */
+
+header {
+  background-color: #00698f;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+header nav {
+  margin-top: 20px;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+header nav li {
+  margin-right: 20px;
+}
+
+header nav a {
+  color: #fff;
+}
+
+header nav a:hover {
+  color: #ccc;
+}
+
+/* Hero Styles */
+
+.hero {
+  background-image: linear-gradient(to bottom, #00698f, #003d5b);
+  background-size: 100% 300px;
+  background-position: 0% 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.features {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.features h2 {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.features li {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.features li:last-child {
+  border-bottom: none;
+}
+
+.features i {
+  font-size: 24px;
+  color: #337ab7;
+  margin-right: 10px;
+}
+
+.features h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 0;
+  color: #337ab7;
+}
+
+.features p {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.ourServicesCyberSecurity {
+  background-image: url('cyber-security-icon.png');
+  background-size: 24px 24px;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+.ourServicesSafety {
+  background-image: url('safety-icon.png');
+  background-size: 24px 24px;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+.ourServicesConsulatation {
+  background-image: url('consultation-icon.png');
+  background-size: 24px 24px;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+.ourServicesVirus {
+  background-image: url('virus-icon.png');
+  background-size: 24px 24px;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+/* Testimonials Styles */
+
+.testimonials {
+  padding: 20px;
+  background-color: #f7f7f7;
+}
+
+.testimonials ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.testimonials li {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.testimonials span {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Report Bugs Styles */
+
+.reportBugs {
+  padding: 20px;
+  background-color: #f7f7f7;
+}
+
+.reportBugs h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.reportBugs form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reportBugs input[type="email"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.reportBugs textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 50%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.reportBugs button[type="submit"] {
+  background-color: #00698f;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.reportBugs button[type="submit"]:hover {
+  background-color: #003d5b;
+}
+
+.reportBugs select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 50%;
+  margin-bottom: 10px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+}
+
+.reportBugs select:hover {
+  border-color: #aaa;
+}
+
+.reportBugs select:focus {
+  border-color: #337ab7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.reportBugs select option {
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.reportBugs select option:hover {
+  background-color: #f7f7f7;
+  color: #337ab7;
+}
+
+.reportBugs select option:selected {
+  background-color: #337ab7;
+  color: #fff;
+}
+
+/* Footer Styles */
+
+footer {
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  clear: both;
+}
+
+footer p {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  .features ul {
+      flex-direction: column;
+  }
+  .features li {
+      width: 100%;
+      margin: 20px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+      height: 200px;
+  }
+  .hero h2 {
+      font-size: 24px;
+  }
+  .hero p {
+      font-size: 14px;
+  }
+}
+

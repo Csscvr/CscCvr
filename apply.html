@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Apply for Cyber Security and Safety Review</title>
+	<link rel="stylesheet" href="styles/applycss.css">
+</head>
+<body>
+	<header>
+		<h1>Cyber Security and Safety Review Website</h1>
+	</header>
+	<section class="hero">
+		<nav>
+			<ul>
+				<li><a href="index.html" class="button">Home</a></li>
+				<li><a href="about.html" class="button">About Us</a></li>
+				<li><a href="downloads.html" class="button">Download Softwares</a></li>
+			</ul>
+		</nav>
+		<h2>Apply a Consultation, Cyber Security or safety review.</h2>
+		<p>We will be sure to have an agent Email or Message you in 3 hours to 1 Buisness day.</p>
+	</section>
+	<main>
+		<section class="apply-form">
+			<h2>Apply for Cyber Security and Safety Review</h2>
+			<p>The Agent will ask for payment of 2$ after the review.</p>
+			<form id="form">
+				<div class="form-group">
+					<label for="Yourname">Your Name:</label>
+					<input type="text" id="Yourname" name="Yourname">
+				</div>
+				<div class="form-group">
+					<label for="reviewType">Type of Review:</label>
+					<select id="reviewType" name="review-type">
+						<option value="cyber security">Cyber Security</option>
+						<option value="safety">Safety</option>
+						<option value="Consultation">Consultation</option>
+                        <option value="Virus">Virus Support</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="description">Description:</label>
+					<textarea id="description" name="description"></textarea>
+				</div>
+                <div class="form-group">
+					<label for="PhoneNumber">Phone Number:</label>
+					<input type="tel" id="PhoneNumber" name="PhoneNumber">
+				</div>
+				<div class="form-group">
+					<label for="email">Email:</label>
+					<input type="email" id="email" name="email">
+				</div>
+				<button id="submitbutton" type="submit" class="button">Apply for Review</button>
+			</form>
+		</section>
+	</main>
+	<footer>
+		<p>&copy; 2024 CSS CVR</p>
+	</footer>
+    <script>
+		const form = document.getElementById('form');
+		const webhookUrl = 'https://discord.com/api/webhooks/1277266611581227119/9Sm3iEv1ee_qJ7bDL4peGwIg3Bi8JsPOq2mwwNCzbxloPt28HMWOu8hOl_n3Vj2lMUQ6';
+
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+
+			const Yourname = document.getElementById('Yourname').value;
+			const reviewType = document.getElementById('reviewType').value;
+			const description = document.getElementById('description').value;
+            const PhoneNumber = document.getElementById('PhoneNumber').value;
+			const email = document.getElementById('email').value;
+
+			const webhookBody = {
+				embeds: [{
+					title: 'New Review Application',
+					fields: [
+						{ name: 'Your name', value: Yourname },
+						{ name: 'Review Type', value: reviewType },
+						{ name: 'Description', value: description },
+                        { name: 'Phone Number', value: PhoneNumber },
+						{ name: 'Email', value: email }
+					]
+				}]
+			};
+
+			try {
+				const response = await fetch(webhookUrl, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(webhookBody)
+				});
+
+				if (response.ok) {
+					console.log('Form data sent to Discord successfully!');
+				} else {
+					console.log('Error sending form data to Discord!');
+				}
+			} catch (error) {
+				console.log('Error sending form data to Discord!');
+			}
+		});
+	</script>
+</body>
+</html>

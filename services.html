@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security and Safety Review Website - Services</title>
+    <link rel="stylesheet" href="styles/servicescss.css">
+</head>
+<body>
+    <header>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="button">Home</a></li>
+            <li><a href="about.html" class="button">About Us</a></li>
+            <li><a href="downloads.html" class="button">Downloads</a></li>
+            <li><a href="apply.html" class="button">Apply for Review</a></li>
+          </ul>
+        </nav>
+        </div>
+      </header>
+    <main>
+        <section class="hero">
+            <h2>Get Free Build into our Website apps that will help you, we are expanding on the spector of the ideas.</h2>
+            <h3>If you would be intrested to partner with us or give suggesting be sure to Email as at csscvr.spprt@gmail.com.</h3>
+        </section>
+        <section class="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li>
+                    <h3>WiFi Meter</h3>
+                    <p>Measure the strength and quality of your WiFi signal</p>
+                    <a href="wifi-meter.html" class="button">Launch Go to Wifi-Meter Page</a>
+                </li>
+                <li>
+                    <h3>Password Strength Checker</h3>
+                    <p>Check the strength and security of your passwords</p>
+                    <a href="passwordTester.html" class="button">Go to password Tester Page</a>
+                </li>
+                <li>
+                    <h3>IP Address Checker</h3>
+                    <p>Check your IP address and location</p>
+                    <button class="button" id="ip-checker-btn">Launch IP Address Checker</button>
+                </li>
+                <li>
+                    <h3>Port Scanner</h3>
+                    <p>Scan for open ports on your device or network</p>
+                    <a href="openPortScanner.html" class="button">Go to open port scanner page.</a>
+                </li>
+            </ul>
+        </section>
+        <div id="ip-popup" style="display: none;">
+            <h2>Your IP Address and Location</h2>
+            <p id="ip-address"></p>
+            <p id="location"></p>
+            <button id="close-popup-btn">Close</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Cyber Security and Safety Review Website</p>
+    </footer>
+    <script>
+        const ipCheckerBtn = document.getElementById('ip-checker-btn');
+        const ipPopup = document.getElementById('ip-popup');
+        const ipAddressElement = document.getElementById('ip-address');
+        const locationElement = document.getElementById('location');
+        const closePopupBtn = document.getElementById('close-popup-btn');
+
+        ipCheckerBtn.addEventListener('click', getIPAndLocation);
+
+        closePopupBtn.addEventListener('click', () => {
+            ipPopup.style.display = 'none';
+        });
+
+        function getIPAndLocation() {
+    fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+            ipAddressElement.textContent = `IP Address: ${data.ip}`;
+            getLocation();
+        })
+        .catch(error => console.error('Error getting IP address:', error));
+}
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            locationElement.textContent = `Location: ${data.display_name}`;
+                            showPopup();
+                        })
+                        .catch(error => console.error('Error getting location:', error));
+                }, error => console.error('Error getting location:', error));
+            } else {
+                console.error('Geolocation is not supported by this browser');
+            }
+        }
+
+        function showPopup() {
+            ipPopup.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

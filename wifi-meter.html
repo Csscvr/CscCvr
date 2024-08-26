@@ -1,0 +1,61 @@
+<!-- wifi-meter.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi Meter</title>
+    <link rel="stylesheet" href="styles/wifi-metercss.css">
+</head>
+<body>
+    <header>
+        <h1>WiFi Meter</h1>
+    </header>
+    <main>
+        <section class="wifi-meter">
+            <h2>WiFi Signal Strength:</h2>
+            <div class="signal-strength">
+                <div class="bar" id="signal-bar"></div>
+                <span id="signal-percentage">0%</span>
+            </div>
+            <p id="signal-status">No signal detected</p>
+            <button class="refresh-button" id="refresh-button">Refresh</button>
+        </section>
+    </main>
+    <script>
+    // wifi-meter.js
+
+        const signalBar = document.getElementById('signal-bar');
+        const signalPercentage = document.getElementById('signal-percentage');
+        const signalStatus = document.getElementById('signal-status');
+        const refreshButton = document.getElementById('refresh-button');
+        
+        let signalStrength = 0;
+        
+        refreshButton.addEventListener('click', refreshSignal);
+        
+        function refreshSignal() {
+            signalStrength = Math.floor(Math.random() * 100);
+            updateSignal();
+        }
+        
+        function updateSignal() {
+            signalBar.style.width = `${signalStrength}%`;
+            signalPercentage.textContent = `${signalStrength}%`;
+            if (signalStrength < 20) {
+                signalStatus.textContent = 'Weak signal';
+                signalStatus.style.color = 'red';
+            } else if (signalStrength < 50) {
+                signalStatus.textContent = 'Medium signal';
+                signalStatus.style.color = 'orange';
+            } else {
+                signalStatus.textContent = 'Strong signal';
+                signalStatus.style.color = 'green';
+            }
+        }
+        
+        refreshSignal();
+        </script>
+</body>
+</html>

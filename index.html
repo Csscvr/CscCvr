@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security and Safety Review Website</title>
+    <link rel="stylesheet" href="styles/homeccs.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="about.html" class="button">About Us</a></li>
+                <li><a href="downloads.html" class="button">Downloads</a></li>
+                <li><a href="apply.html" class="button">Apply for Review</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h2>Protect Your Business and Yourself from Cyber-attacks, Doxing threats and potential viruses</h2>
+            <h2>Get a comprehensive cyber security and safety review to identify vulnerabilities and improve your online defenses.</h2>
+        </section>
+        <section class="features">
+            <h2>Our Services</h2>
+            <ul>
+                <li>
+                    <i class="ourServicesCyberSecurity"></i>
+                    <h3>Cyber Security Review</h3>
+                    <p>Identify vulnerabilities and weaknesses in your system.</p>
+                </li>
+                <li>
+                    <i class="ourServicesSafety"></i>
+                    <h3>Safety Review</h3>
+                    <p>Ensure your data is private and no one can access it except you.</p>
+                </li>
+                <li>
+                    <i class="ourServicesConsulatation"></i>
+                    <h3>Consultation</h3>
+                    <p>Consult with a professional about your safety, cyber security and potential risks.</p>
+                </li>
+                <li>
+                    <i class="ourServicesVirus"></i>
+                    <h3>Virus Review</h3>
+                    <p>Get a review on your computer to know weaknesses that people can use to hack it.</p>
+                </li>
+            </ul>
+        </section>
+        <section class="testimonials">
+            <h2>What Our Clients Say</h2>
+            <ul>
+                <li>
+                    <p>"Cyber Security and Safety Review Website helped me identify vulnerabilities in my system and provided recommendations to improve my online security."</p>
+                    <span>John Doe</span>
+                </li>
+                <li>
+                    <p>"Their consultation services were excellent, and I was able to get a clear understanding of my safety and cyber security risks."</p>
+                    <span>Jane Smith</span>
+                </li>
+            </ul>
+        </section>
+        <section class="reportBugs">
+            <h2>Report Bugs</h2>
+            <form id="form">
+                <label for="reviewType">Type of Review:</label>
+					<select id="reviewType" name="review-type">
+						<option value="Offensive">Offensive</option>
+						<option value="An Error in Website">An Error in Website</option>
+						<option value="An Error in Software">An Error in Software</option>
+                        <option value="Missinformation">Missinformation</option>
+					</select>
+                <input id="email" type="email" name="email" placeholder="Email">
+                <textarea id="description" name="description" placeholder="Describe the issue you're experiencing"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Cyber Security and Safety Review Website</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('form');
+            const webhookUrl = 'https://discord.com/api/webhooks/1277266727402606712/Y9NneFMUMCIWvSt6dZsWIp_13b0Ysh6yGoVn7v296HhMcn3UMEy_SuwtVwNzRKwXfRC1';
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const emailInput = document.getElementById('email');
+                const descriptionInput = document.getElementById('description');
+                const reviewTypeInput = document.getElementById('reviewType')
+
+                if (!emailInput || !descriptionInput) {
+                    console.error('One or both of the email and description elements are missing!');
+                    return;
+                }
+
+                const email = emailInput.value;
+                const description = descriptionInput.value;
+                const type = reviewTypeInput.value;
+
+                const webhookBody = {
+                    embeds: [{
+                        title: 'New Review Application',
+                        fields: [
+                            { name: 'Description', value: description },
+                            { name: 'Email', value: email },
+                            { name: 'Review Type', value: type}
+                        ]
+                    }]
+                };
+
+                try {
+                    const response = await fetch(webhookUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(webhookBody)
+                    });
+
+                    if (response.ok) {
+                        console.log('Form data sent to the Agent successfully!');
+                    } else {
+                        console.log('Error sending form data to the Agent');
+                    }
+                } catch (error) {
+                    console.log('Error sending form data to the Agent');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
