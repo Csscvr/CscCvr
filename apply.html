@@ -6,7 +6,7 @@
 </head>
 <body>
 	<header>
-		<h1>Cyber Security and Safety Review Website</h1>
+		<h1>Cyber Security Consultation & Counter Virus Protection</h1>
 	</header>
 	<section class="hero">
 		<nav>
@@ -16,13 +16,13 @@
 				<li><a href="downloads.html" class="button">Download Softwares</a></li>
 			</ul>
 		</nav>
-		<h2>Apply a Consultation, Cyber Security or safety review.</h2>
+		<h2>Apply a Consultation.</h2>
 		<p>We will be sure to have an agent Email or Message you in 3 hours to 1 Buisness day.</p>
 	</section>
 	<main>
 		<section class="apply-form">
 			<h2>Apply for Cyber Security and Safety Review</h2>
-			<p>The Agent will ask for payment of 2$ after the review.</p>
+			<p>The Agent will ask for payment of 2$ before the review.</p>
 			<form id="form">
 				<div class="form-group">
 					<label for="Yourname">Your Name:</label>
@@ -31,23 +31,33 @@
 				<div class="form-group">
 					<label for="reviewType">Type of Review:</label>
 					<select id="reviewType" name="review-type">
-						<option value="cyber security">Cyber Security</option>
+						<option value="Cyber security">Cyber Security</option>
 						<option value="safety">Safety</option>
 						<option value="Consultation">Consultation</option>
-                        <option value="Virus">Virus Support</option>
+                                                <option value="Virus">Virus Support</option>
+						<option value="Tech Support">Tech Support</option>
 					</select>
 				</div>
 				<div class="form-group">
 					<label for="description">Description:</label>
 					<textarea id="description" name="description"></textarea>
 				</div>
-                <div class="form-group">
+                                <div class="form-group">
 					<label for="PhoneNumber">Phone Number:</label>
 					<input type="tel" id="PhoneNumber" name="PhoneNumber">
 				</div>
 				<div class="form-group">
 					<label for="email">Email:</label>
 					<input type="email" id="email" name="email">
+				</div>
+				<div class="form-group">
+					<label for="TypeComunication">Over What Will the assistance be given?</label>
+					<select id="TypeComunication" name="Type-Comuncation">
+						<option value="Google Meet">Google Meet</option>
+						<option value="Email">Email</option>
+						<option value="Discord"> Discord !EXPERIMENTAL! You will have to send you username over Email</option>
+						<option value="WhatsApp Or Phone">Phone Messaging</option>
+					</select>
 				</div>
 				<button id="submitbutton" type="submit" class="button">Apply for Review</button>
 			</form>
@@ -58,7 +68,7 @@
 	</footer>
     <script>
 		const form = document.getElementById('form');
-		const webhookUrl = 'https://discord.com/api/webhooks/1277266611581227119/9Sm3iEv1ee_qJ7bDL4peGwIg3Bi8JsPOq2mwwNCzbxloPt28HMWOu8hOl_n3Vj2lMUQ6';
+		const webhookUrl = WEBHOOKURLAPPLY
 
 		form.addEventListener('submit', async (e) => {
 			e.preventDefault();
@@ -66,7 +76,8 @@
 			const Yourname = document.getElementById('Yourname').value;
 			const reviewType = document.getElementById('reviewType').value;
 			const description = document.getElementById('description').value;
-            const PhoneNumber = document.getElementById('PhoneNumber').value;
+                        const PhoneNumber = document.getElementById('PhoneNumber').value;
+			const TypeComunication = document.getElementById('TypeComunication').value;
 			const email = document.getElementById('email').value;
 
 			const webhookBody = {
@@ -76,7 +87,8 @@
 						{ name: 'Your name', value: Yourname },
 						{ name: 'Review Type', value: reviewType },
 						{ name: 'Description', value: description },
-                        { name: 'Phone Number', value: PhoneNumber },
+                                                { name: 'Phone Number', value: PhoneNumber },
+						{ name: 'Type of Comunication', value: TypeComunication },
 						{ name: 'Email', value: email }
 					]
 				}]
