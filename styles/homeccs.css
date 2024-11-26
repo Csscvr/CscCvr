@@ -199,8 +199,8 @@ header nav a:hover {
   color: #666;
 }
 
-.ourServicesCyberSecurity {
-  background-image: url('cyber-security-icon.png');
+.ourServicesSoftwareReview {
+  background-image: url('SoftwareReview-icon.png');
   background-size: 24px 24px;
   width: 24px;
   height: 24px;
@@ -225,6 +225,14 @@ header nav a:hover {
 
 .ourServicesVirus {
   background-image: url('virus-icon.png');
+  background-size: 24px 24px;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+.ourServicesTS {
+  background-image: url('techsupport-icon.png');
   background-size: 24px 24px;
   width: 24px;
   height: 24px;
