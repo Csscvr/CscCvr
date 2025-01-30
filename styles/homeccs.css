@@ -395,3 +395,56 @@ footer p {
   }
 }
 
+.container {
+
+      max-width: 1200px;
+
+      margin: 0 auto;
+
+      padding: 0 15px;
+
+    }
+
+
+    .logo {
+
+      display: inline-block;
+
+      font-size: 24px;
+
+      font-weight: bold;
+
+      color: #333;
+
+    }
+
+
+    .lang-select {
+
+      float: right;
+
+      margin-top: 5px;
+
+    }
+
+
+    .lang-select select {
+
+      border: 1px solid #ccc;
+
+      padding: 5px 10px;
+
+      border-radius: 3px;
+
+      font-size: 16px;
+
+      cursor: pointer;
+
+    }
+
+
+    .lang-select select option {
+
+      font-size: 16px;
+
+    }
