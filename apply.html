@@ -22,7 +22,7 @@
 	<main>
 		<section class="apply-form">
 			<h2>Apply for Cyber Security and Safety Review</h2>
-			<p>The Agent will ask for payment of 2$ before the review.</p>
+			<p>The Agent will ask for payment of 2$ before the start.</p>
 			<form id="form">
 				<div class="form-group">
 					<label for="Yourname">Your Name:</label>
@@ -60,58 +60,13 @@
 					</select>
 				</div>
 				<button id="submitbutton" type="submit" class="button">Apply for Review</button>
+				<p>By submitting to us you agree to our TOS</p>
 			</form>
 		</section>
 	</main>
 	<footer>
 		<p>&copy; 2024 CSS CVR</p>
 	</footer>
-    <script>
-		const form = document.getElementById('form');
-		const webhookUrl = WEBHOOKURLAPPLY
-
-		form.addEventListener('submit', async (e) => {
-			e.preventDefault();
-
-			const Yourname = document.getElementById('Yourname').value;
-			const reviewType = document.getElementById('reviewType').value;
-			const description = document.getElementById('description').value;
-                        const PhoneNumber = document.getElementById('PhoneNumber').value;
-			const TypeComunication = document.getElementById('TypeComunication').value;
-			const email = document.getElementById('email').value;
-
-			const webhookBody = {
-				embeds: [{
-					title: 'New Review Application',
-					fields: [
-						{ name: 'Your name', value: Yourname },
-						{ name: 'Review Type', value: reviewType },
-						{ name: 'Description', value: description },
-                                                { name: 'Phone Number', value: PhoneNumber },
-						{ name: 'Type of Comunication', value: TypeComunication },
-						{ name: 'Email', value: email }
-					]
-				}]
-			};
-
-			try {
-				const response = await fetch(webhookUrl, {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify(webhookBody)
-				});
-
-				if (response.ok) {
-					console.log('Form data sent to Discord successfully!');
-				} else {
-					console.log('Error sending form data to Discord!');
-				}
-			} catch (error) {
-				console.log('Error sending form data to Discord!');
-			}
-		});
-	</script>
+    <script source="applyjs.js"></script>
 </body>
 </html>
