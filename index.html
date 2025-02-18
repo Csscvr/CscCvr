@@ -1,92 +1,91 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-  <html lang="en">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <div class="container">
-  <div class="logo"><h1 id="greeting"></h1></div>
-  <div class="lang-select">
-        <button onclick="setLanguage('en')">English</button>
-	<button onclick="setLanguage('es')">Spanish</button>
-	<button onclick="setLanguage('fr')">French</button>
-      </div>
+    <div class="logo"><h1 id="greeting"></h1></div>
+    <div class="lang-select">
+      <button onclick="setLanguage('en')">English</button>
+      <button onclick="setLanguage('es')">Spanish</button>
+      <button onclick="setLanguage('fr')">French</button>
     </div>
+  </div>
   <title>Home - CSC CVR</title>
   <link rel="stylesheet" href="styles/homeccs.css">
 </head>
-    
-
 
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="about.html" class="button">About Us</a></li>
-                <li><a href="downloads.html" class="button">Downloads</a></li>
-                <li><a href="apply.html" class="button">Apply for Review</a></li>
+                <li><a href="about.html" class="button" id="aboutUs"></a></li>
+                <li><a href="downloads.html" class="button" id="downloads"></a></li>
+                <li><a href="apply.html" class="button" id="applyReview"></a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section class="hero">
-            <h2>Protect Your Business and Yourself from Cyber-attacks, Doxing threats and potential viruses</h2>
-            <h2>Get a comprehensive cyber security and safety review to identify vulnerabilities and improve your online defenses.</h2>
+            <h2 id="heroText1"></h2>
+            <h2 id="heroText2"></h2>
         </section>
         <section class="features">
-            <h2>Our Services</h2>
+            <h2 id="ourServices"></h2>
             <ul>
                 <li>
                     <i class="ourServicesSoftwareReview"></i>
-                    <h3>Software Review</h3>
-                    <p>Identify vulnerabilities and weaknesses in your OS, Software, or just review a software that you dont trust.</p>
+                    <h3 id="softwareReview"></h3>
+                    <p id="softwareReviewDesc"></p>
                 </li>
                 <li>
                     <i class="ourServicesSafety"></i>
-                    <h3>Safety Review</h3>
-                    <p>Ensure your data is private and no one can access without your consent.</p>
+                    <h3 id="safetyReview"></h3>
+                    <p id="safetyReviewDesc"></p>
                 </li>
                 <li>
                     <i class="ourServicesConsulatation"></i>
-                    <h3>Consultation</h3>
-                    <p>Consult with a professional about your safety, cyber security and potential risks.</p>
+                    <h3 id="consultation"></h3>
+                    <p id="consultationDesc"></p>
                 </li>
-		<li>
-	            <i class="ourServicesTS"></i>
-		    <h3>Tech Support</h3>
-		    <p>We offer 1 free Tech Support Call for each EMail, we recommend Reading Our TOS to learn more.</p>
+                <li>
+                    <i class="ourServicesTS"></i>
+                    <h3 id="techSupport"></h3>
+                    <p id="techSupportDesc"></p>
+                </li>
                 <li>
                     <i class="ourServicesVirus"></i>
-                    <h3>Virus Review</h3>
-                    <p>This sevice can help you identify Trojans, RATs and backdoors on your computer.</p>
+                    <h3 id="virusReview"></h3>
+                    <p id="virusReviewDesc"></p>
                 </li>
             </ul>
         </section>
         <section class="testimonials">
-            <h2>What Our Clients Say</h2>
+            <h2 id="clientTestimonials"></h2>
             <ul>
                 <li>
-                    <p>"They helped me a lot with getting back the access to my hacked account."</p>
+                    <p id="testimonial1"></p>
                     <span>John Doe</span>
                 </li>
                 <li>
-                    <p>"Their consultation services were excellent, and I was able to get a clear understanding of my safety and cyber security risks."</p>
+                    <p id="testimonial2"></p>
                     <span>Jane Smith</span>
                 </li>
             </ul>
         </section>
         <section class="reportBugs">
-            <h2>Report Bugs</h2>
+            <h2 id="reportBugs"></h2>
             <form id="form">
-                <label for="reviewType">Type of Review:</label>
-					<select id="reviewType" name="review-type">
-						<option value="Offensive">Offensive</option>
-						<option value="An Error in Website">An Error in Website</option>
-						<option value="An Error in Software">An Error in Software</option>
-                                                <option value="Missinformation">Missinformation</option>
-					</select>
+                <label for="reviewType" id="reviewTypeLabel"></label>
+                <select id="reviewType" name="review-type">
+                    <option value="Offensive" id="offensive"></option>
+                    <option value="An Error in Website" id="errorWebsite"></option>
+                    <option value="An Error in Software" id="errorSoftware"></option>
+                    <option value="Missinformation" id="misinformation"></option>
+                </select>
                 <input id="email" type="email" name="email" placeholder="Email">
                 <textarea id="description" name="description" placeholder="Describe the issue you're experiencing"></textarea>
-                <button type="submit">Submit</button>
+                <button type="submit" id="submitButton"></button>
             </form>
         </section>
     </main>
@@ -94,79 +93,146 @@
         <p>&copy; CSC CVR</p>
     </footer>
     <script>
-	           // Function to set the language preference
-
         function setLanguage(language) {
-
             localStorage.setItem('preferredLanguage', language);
-
             loadContent(language);
-
         }
 
-
-        // Function to load content based on the selected language
-
         function loadContent(language) {
-
             const greetingElement = document.getElementById('greeting');
+            const aboutUs = document.getElementById('aboutUs');
+            const downloads = document.getElementById('downloads');
+            const applyReview = document.getElementById('applyReview');
+            const heroText1 = document.getElementById('heroText1');
+            const heroText2 = document.getElementById('heroText2');
+            const ourServices = document.getElementById('ourServices');
+            const softwareReviewDesc = document.getElementById('softwareReviewDesc');
+            const safetyReview = document.getElementById('safetyReview');
+            const safetyReviewDesc = document.getElementById('safetyReviewDesc');
+            const consultation = document.getElementById('consultation');
+            const consultationDesc = document.getElementById('consultationDesc');
+            const techSupport = document.getElementById('techSupport');
+            const techSupportDesc = document.getElementById('techSupportDesc');
+            const virusReview = document.getElementById('virusReview');
+            const virusReviewDesc = document.getElementById('virusReviewDesc');
+            const clientTestimonials = document.getElementById('clientTestimonials');
+            const testimonial1 = document.getElementById('testimonial1');
+            const testimonial2 = document.getElementById('testimonial2');
+            const reportBugs = document.getElementById('reportBugs');
+            const reviewTypeLabel = document.getElementById('reviewTypeLabel');
+            const offensive = document.getElementById('offensive');
+            const errorWebsite = document.getElementById('errorWebsite');
+            const errorSoftware = document.getElementById('errorSoftware');
+            const misinformation = document.getElementById('misinformation');
+            const submitButton = document.getElementById('submitButton');
 
             switch (language) {
-
                 case 'en':
-
                     greetingElement.textContent = 'Hello! Welcome to our website.';
-
+                    aboutUs.textContent = 'About Us';
+                    downloads.textContent = 'Downloads';
+                    applyReview.textContent = 'Apply for Review';
+                    heroText1.textContent = 'Protect Your Business and Yourself from Cyber-attacks, Doxing threats and potential viruses';
+                    heroText2.textContent = 'Get a comprehensive cyber security and safety review to identify vulnerabilities and improve your online defenses.';
+                    ourServices.textContent = 'Our Services';
+                    softwareReview.textContent = 'Software Review';
+                    softwareReviewDesc.textContent = 'Identify vulnerabilities and weaknesses in your OS, Software, or just review a software that you don’t trust.';
+                    safetyReview.textContent = 'Safety Review';
+                    safetyReviewDesc.textContent = 'Ensure your data is private and no one can access without your consent.';
+                    consultation.textContent = 'Consultation';
+                    consultationDesc.textContent = 'Consult with a professional about your safety, cyber security and potential risks.';
+                    techSupport.textContent = 'Tech Support';
+                    techSupportDesc.textContent = 'We offer 1 free Tech Support Call for each Email, we recommend Reading Our TOS to learn more.';
+                    virusReview.textContent = 'Virus Review';
+                    virusReviewDesc.textContent = 'This service can help you identify Trojans, RATs and backdoors on your computer.';
+                    clientTestimonials.textContent = 'What Our Clients Say';
+                    testimonial1.textContent = '"They helped me a lot with getting back the access to my hacked account."';
+                    testimonial2.textContent = '"Their consultation services were excellent, and I was able to get a clear understanding of my safety and cyber security risks."';
+                    reportBugs.textContent = 'Report Bugs';
+                    reviewTypeLabel.textContent = 'Type of Review:';
+                    offensive.textContent = 'Offensive';
+                    errorWebsite.textContent = 'An Error in Website';
+                    errorSoftware.textContent = 'An Error in Software';
+                    misinformation.textContent = 'Misinformation';
+                    submitButton.textContent = 'Submit';
                     break;
 
                 case 'es':
-
                     greetingElement.textContent = '¡Hola! Bienvenido a nuestro sitio web.';
-
+                    aboutUs.textContent = 'Sobre Nosotros';
+                    downloads.textContent = 'Descargas';
+                    applyReview.textContent = 'Solicitar Revisión';
+                    heroText1.textContent = 'Protege tu negocio y a ti mismo de ciberataques, amenazas de doxing y virus potenciales';
+                    heroText2.textContent = 'Obtén una revisión integral de ciberseguridad y seguridad para identificar vulnerabilidades y mejorar tus defensas en línea.';
+                    ourServices.textContent = 'Nuestros Servicios';
+                    softwareReview.textContent = 'Revisión de Software';
+                    softwareReviewDesc.textContent = 'Identifica vulnerabilidades y debilidades en tu sistema operativo, software o simplemente revisa un software en el que no confías.';
+                    safetyReview.textContent = 'Revisión de Seguridad';
+                    safetyReviewDesc.textContent = 'Asegúrate de que tus datos sean privados y que nadie pueda acceder sin tu consentimiento.';
+                    consultation.textContent = 'Consulta';
+                    consultationDesc.textContent = 'Consulta con un profesional sobre tu seguridad, ciberseguridad y riesgos potenciales.';
+                    techSupport.textContent = 'Soporte Técnico';
+                    techSupportDesc.textContent = 'Ofrecemos 1 llamada de soporte técnico gratuita por cada correo electrónico, recomendamos leer nuestros TOS para saber más.';
+                    virusReview.textContent = 'Revisión de Virus';
+                    virusReviewDesc.textContent = 'Este servicio puede ayudarte a identificar troyanos, RATs y puertas traseras en tu computadora.';
+                    clientTestimonials.textContent = 'Lo Que Dicen Nuestros Clientes';
+                    testimonial1.textContent = '"Me ayudaron mucho a recuperar el acceso a mi cuenta hackeada."';
+                    testimonial2.textContent = '"Sus servicios de consulta fueron excelentes y pude obtener una comprensión clara de mi seguridad y riesgos de ciberseguridad."';
+                    reportBugs.textContent = 'Reportar Errores';
+                    reviewTypeLabel.textContent = 'Tipo de Revisión:';
+                    offensive.textContent = 'Ofensivo';
+                    errorWebsite.textContent = 'Un Error en el Sitio Web';
+                    errorSoftware.textContent = 'Un Error en el Software';
+                    misinformation.textContent = 'Desinformación';
+                    submitButton.textContent = 'Enviar';
                     break;
 
                 case 'fr':
-
                     greetingElement.textContent = 'Bonjour! Bienvenue sur notre site Web.';
-
+                    aboutUs.textContent = 'À Propos de Nous';
+                    downloads.textContent = 'Téléchargements';
+                    applyReview.textContent = 'Demander une Révision';
+                    heroText1.textContent = 'Protégez votre entreprise et vous-même contre les cyberattaques, les menaces de doxing et les virus potentiels';
+                    heroText2.textContent = 'Obtenez une révision complète de la cybersécurité et de la sécurité pour identifier les vulnérabilités et améliorer vos défenses en ligne.';
+                    ourServices.textContent = 'Nos Services';
+                    softwareReview.textContent = 'Revue de Logiciel';
+                    softwareReviewDesc.textContent = 'Identifiez les vulnérabilités et les faiblesses de votre système d’exploitation, logiciel ou simplement examinez un logiciel en lequel vous n’avez pas confiance.';
+                    safetyReview.textContent = 'Revue de Sécurité';
+                    safetyReviewDesc.textContent = 'Assurez-vous que vos données sont privées et que personne ne peut y accéder sans votre consentement.';
+                    consultation.textContent = 'Consultation';
+                    consultationDesc.textContent = 'Consultez un professionnel sur votre sécurité, cybersécurité et risques potentiels.';
+                    techSupport.textContent = 'Support Technique';
+                    techSupportDesc.textContent = 'Nous offrons 1 appel de support technique gratuit pour chaque e-mail, nous vous recommandons de lire nos TOS pour en savoir plus.';
+                    virusReview.textContent = 'Revue de Virus';
+                    virusReviewDesc.textContent = 'Ce service peut vous aider à identifier des chevaux de Troie, des RAT et des portes dérobées sur votre ordinateur.';
+                    clientTestimonials.textContent = 'Ce Que Disent Nos Clients';
+                    testimonial1.textContent = '"Ils m’ont beaucoup aidé à récupérer l’accès à mon compte piraté."';
+                    testimonial2.textContent = '"Leurs services de consultation étaient excellents et j’ai pu obtenir une compréhension claire de ma sécurité et des risques de cybersécurité."';
+                    reportBugs.textContent = 'Signaler des Bugs';
+                    reviewTypeLabel.textContent = 'Type de Revue:';
+                    offensive.textContent = 'Offensif';
+                    errorWebsite.textContent = 'Une Erreur sur le Site Web';
+                    errorSoftware.textContent = 'Une Erreur dans le Logiciel';
+                    misinformation.textContent = 'Désinformation';
+                    submitButton.textContent = 'Soumettre';
                     break;
 
                 default:
-
-                    greetingElement.textContent = 'Hello! Welcome to our website.';
-
+                    loadContent('en');
             }
-
         }
-
-
-        // Function to retrieve the user's preferred language on page load
 
         function retrieveLanguagePreference() {
-
             const preferredLanguage = localStorage.getItem('preferredLanguage');
-
             if (preferredLanguage) {
-
                 loadContent(preferredLanguage);
-
             } else {
-
-                // If no preference is set, load default content (English)
-
                 loadContent('en');
-
             }
-
         }
-
-
-        // Call the function to retrieve the language preference when the page loads
 
         window.onload = retrieveLanguagePreference;
 
-
-	    
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('form');
             const webhookUrl = 'https://discord.com/api/webhooks/1277266727402606712/Y9NneFMUMCIWvSt6dZsWIp_13b0Ysh6yGoVn7v296HhMcn3UMEy_SuwtVwNzRKwXfRC1';
@@ -176,7 +242,7 @@
 
                 const emailInput = document.getElementById('email');
                 const descriptionInput = document.getElementById('description');
-                const reviewTypeInput = document.getElementById('reviewType')
+                const reviewTypeInput = document.getElementById('reviewType');
 
                 if (!emailInput || !descriptionInput) {
                     console.error('One or both of the email and description elements are missing!');
@@ -193,7 +259,7 @@
                         fields: [
                             { name: 'Description', value: description },
                             { name: 'Email', value: email },
-                            { name: 'Review Type', value: type}
+                            { name: 'Review Type', value: type }
                         ]
                     }]
                 };
