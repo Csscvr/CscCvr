@@ -17,23 +17,59 @@
             const valuesTitleElement = document.querySelector('.values h2');
             const faqTitleElement = document.querySelector('.faq h2');
 
-            const teamMembers = [
-                {
-                    name: 'Avenue',
-                    role: 'CEO and Founder',
-                    description: 'A master in cyber-security.'
-                },
-                {
-                    name: 'PRG',
-                    role: 'Co-Founder of the Company',
-                    description: 'A master at website making and Programming.'
-                },
-                {
-                    name: 'DCry',
-                    role: 'Payment Handling Manager',
-                    description: 'An actual professional in things like.'
-                }
-            ];
+            const teamMembers = {
+                en: [
+                    {
+                        name: 'Avenue',
+                        role: 'CEO and Founder',
+                        description: 'A master in cyber-security.'
+                    },
+                    {
+                        name: 'PRG',
+                        role: 'Co-Founder of the Company',
+                        description: 'A master at website making and Programming.'
+                    },
+                    {
+                        name: 'DCry',
+                        role: 'Payment Handling Manager',
+                        description: 'An actual professional in things like.'
+                    }
+                ],
+                es: [
+                    {
+                        name: 'Avenue',
+                        role: 'CEO y Fundador',
+                        description: 'Un maestro en ciberseguridad.'
+                    },
+                    {
+                        name: 'PRG',
+                        role: 'Co-Fundador de la Empresa',
+                        description: 'Un maestro en la creación de sitios web y programación.'
+                    },
+                    {
+                        name: 'DCry',
+                        role: 'Gerente de Manejo de Pagos',
+                        description: 'Un profesional real en cosas como.'
+                    }
+                ],
+                fr: [
+                    {
+                        name: 'Avenue',
+                        role: 'PDG et Fondateur',
+                        description: 'Un maître en cybersécurité.'
+                    },
+                    {
+                        name: 'PRG',
+                        role: 'Co-Fondateur de l\'Entreprise',
+                        description: 'Un maître dans la création de sites Web et la programmation.'
+                    },
+                    {
+                        name: 'DCry',
+                        role: 'Responsable du Traitement des Paiements',
+                        description: 'Un professionnel dans des domaines comme.'
+                    }
+                ]
+            };
 
             const values = [
                 'Security: We prioritize the security and safety of our clients\' online presence.',
@@ -42,28 +78,89 @@
                 '💻 Support: Our Website supports all devices from iPhones to Chromebooks.'
             ];
 
-            const faqs = [
-                {
-                    question: 'What is the purpose of Our Website?',
-                    answer: 'Our purpose is to provide comprehensive cyber security and safety reviews etc... to individuals and businesses, helping them protect themselves from cyber threats and ensuring their online safety.'
-                },
-                {
-                    question: 'How do I apply for a review?',
-                    answer: 'Simply click on the "Apply for Review" button in the navigation menu and fill out the application form. Our team will review your application and contact you shortly.'
-                },
-                {
-                    question: 'What kind of software do you review?',
-                    answer: 'We review a wide range of software, including antivirus software, password managers, and VPNs. If you have a specific software in mind, feel free to contact us and we\'ll let you know what we think of it.'
-                },
-                {
-                    question: 'How do I contact your team?',
-                    answer: 'You can contact us through our website\'s contact form or by sending an email to csccvr.spprt@gmail.com if you would like to talk to an actual person, or if you want to be handled by our top of the line AI contact csccvr.artificialintelligence@gmail.com.'
-                },
-                {
-                    question: 'Where can I read your Privacy Policy / Terms of Service - TOS?',
-                    answer: 'To view our TOS just click on the attachment below.'
-                }
-            ];
+            const valuesTranslations = {
+                es: [
+                    'Seguridad: Priorizamos la seguridad y protección de la presencia en línea de nuestros clientes.',
+                    'Integridad: Mantenemos el más alto nivel de integridad en nuestro trabajo y aseguramos que la información de nuestros clientes se mantenga confidencial.',
+                    'Innovación: Nos mantenemos actualizados con las últimas tendencias y tecnologías de seguridad para garantizar que nuestros clientes reciban el mejor servicio posible.',
+                    '💻 Soporte: Nuestro sitio web es compatible con todos los dispositivos, desde iPhones hasta Chromebooks.'
+                ],
+                fr: [
+                    'Sécurité : Nous priorisons la sécurité et la protection de la présence en ligne de nos clients.',
+                    'Intégrité : Nous maintenons le plus haut niveau d\'intégrité dans notre travail et veillons à ce que les informations de nos clients restent confidentielles.',
+                    'Innovation : Nous restons à jour avec les dernières tendances et technologies de sécurité pour garantir que nos clients reçoivent le meilleur service possible.',
+                    '💻 Support : Notre site Web prend en charge tous les appareils, des iPhones aux Chromebooks.'
+                ]
+            };
+
+            const faqs = {
+                en: [
+                    {
+                        question: 'What is the purpose of Our Website?',
+                        answer: 'Our purpose is to provide comprehensive cyber security and safety reviews etc... to individuals and businesses, helping them protect themselves from cyber threats and ensuring their online safety.'
+                    },
+                    {
+                        question: 'How do I apply for a review?',
+                        answer: 'Simply click on the "Apply for Review" button in the navigation menu and fill out the application form. Our team will review your application and contact you shortly.'
+                    },
+                    {
+                        question: 'What kind of software do you review?',
+                        answer: 'We review a wide range of software, including antivirus software, password managers, and VPNs. If you have a specific software in mind, feel free to contact us and we\'ll let you know what we think of it.'
+                    },
+                    {
+                        question: 'How do I contact your team?',
+                        answer: 'You can contact us through our website\'s contact form or by sending an email to csccvr.spprt@gmail.com if you would like to talk to an actual person, or if you want to be handled by our top of the line AI contact csccvr.artificialintelligence@gmail.com.'
+                    },
+                    {
+                        question: 'Where can I read your Privacy Policy / Terms of Service - TOS?',
+                        answer: 'To view our TOS just click on the attachment below.'
+                    }
+                ],
+                es: [
+                    {
+                        question: '¿Cuál es el propósito de nuestro sitio web?',
+                        answer: 'Nuestro propósito es proporcionar revisiones integrales de ciberseguridad y seguridad, etc... a individuos y empresas, ayudándoles a protegerse de las amenazas cibernéticas y asegurando su seguridad en línea.'
+                    },
+                    {
+                        question: '¿Cómo puedo solicitar una revisión?',
+                        answer: 'Simplemente haga clic en el botón "Solicitar Revisión" en el menú de navegación y complete el formulario de solicitud. Nuestro equipo revisará su solicitud y se pondrá en contacto con usted en breve.'
+                    },
+                    {
+                        question: '¿Qué tipo de software revisan?',
+                        answer: 'Revisamos una amplia gama de software, incluidos software antivirus, administradores de contraseñas y VPN. Si tiene un software específico en mente, no dude en contactarnos y le haremos saber lo que pensamos al respecto.'
+                    },
+                    {
+                        question: '¿Cómo puedo contactar a su equipo?',
+                        answer: 'Puede contactarnos a través del formulario de contacto de nuestro sitio web o enviando un correo electrónico a csccvr.spprt@gmail.com si desea hablar con una persona real, o si desea ser atendido por nuestra inteligencia artificial de primera línea, contáctenos en csccvr.artificialintelligence@gmail.com.'
+                    },
+                    {
+                        question: '¿Dónde puedo leer su Política de Privacidad / Términos de Servicio - TOS?',
+                        answer: 'Para ver nuestros TOS, simplemente haga clic en el archivo adjunto a continuación.'
+                    }
+                ],
+                fr: [
+                    {
+                        question: 'Quel est le but de notre site Web?',
+                        answer: 'Notre objectif est de fournir des examens complets de cybersécurité et de sécurité, etc... aux particuliers et aux entreprises, les aidant à se protéger contre les menaces cybernétiques et à garantir leur sécurité en ligne.'
+                    },
+                    {
+                        question: 'Comment puis-je demander une révision?',
+                        answer: 'Il vous suffit de cliquer sur le bouton "Demander une Révision" dans le menu de navigation et de remplir le formulaire de demande. Notre équipe examinera votre demande et vous contactera sous peu.'
+                    },
+                    {
+                        question: 'Quel type de logiciel examinez-vous?',
+                        answer: 'Nous examinons une large gamme de logiciels, y compris des logiciels antivirus, des gestionnaires de mots de passe et des VPN. Si vous avez un logiciel spécifique en tête, n\'hésitez pas à nous contacter et nous vous ferons savoir ce que nous en pensons.'
+                    },
+                    {
+                        question: 'Comment puis-je contacter votre équipe?',
+                        answer: 'Vous pouvez nous contacter via le formulaire de contact de notre site Web ou en envoyant un e-mail à csccvr.spprt@gmail.com si vous souhaitez parler à une personne réelle, ou si vous souhaitez être pris en charge par notre intelligence artificielle de pointe, contactez csccvr.artificialintelligence@gmail.com.'
+                    },
+                    {
+                        question: 'Où puis-je lire votre Politique de Confidentialité / Conditions de Service - TOS?',
+                        answer: 'Pour consulter nos TOS, il vous suffit de cliquer sur la pièce jointe ci-dessous.'
+                    }
+                ]
+            };
 
             switch (language) {
                 case 'en':
@@ -97,7 +194,7 @@
             // Update team members
             const teamList = document.querySelector('.about-us ul');
             teamList.innerHTML = '';
-            teamMembers.forEach(member => {
+            teamMembers[language].forEach(member => {
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `
                     <img src="team-member-1.jpg" alt="${member.name}">
@@ -111,7 +208,8 @@
             // Update values
             const valuesList = document.querySelector('.values ul');
             valuesList.innerHTML = '';
-            values.forEach(value => {
+            const currentValues = language === 'en' ? values : valuesTranslations[language];
+            currentValues.forEach(value => {
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `<i class="fas fa-lock"></i> ${value}`;
                 valuesList.appendChild(listItem);
@@ -120,7 +218,7 @@
             // Update FAQs
             const faqList = document.querySelector('.faq ul');
             faqList.innerHTML = '';
-            faqs.forEach(faq => {
+            faqs[language].forEach(faq => {
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `
                     <h3>${faq.question}</h3>
@@ -185,6 +283,7 @@
     <footer>
         <div class="container">
             <p>&copy; 2024 CSC CVR</p>
+	    <a href="https://docs.google.com/document/d/1-A3VY-pKTujGxj9sMgwVG_Zcf-dH0qvG2XgJ8M3VU-M/edit?usp=sharing">Terms Of Service - Privacy Policy</a>
             <section class="faq">
                 <h2>Frequently Asked Questions - FAQ</h2>
                 <ul>
@@ -195,4 +294,3 @@
     </footer>
 </body>
 </html>
-			    
