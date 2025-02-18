@@ -1,97 +1,198 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-	<title>About Us</title>
-	<link rel="stylesheet" href="styles/aboutcss.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>About Us</title>
+    <link rel="stylesheet" href="styles/aboutcss.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        function setLanguage(language) {
+            localStorage.setItem('preferredLanguage', language);
+            loadContent(language);
+        }
+
+        function loadContent(language) {
+            const titleElement = document.querySelector('h1');
+            const missionElement = document.querySelector('.hero p');
+            const teamTitleElement = document.querySelector('.about-us h2');
+            const valuesTitleElement = document.querySelector('.values h2');
+            const faqTitleElement = document.querySelector('.faq h2');
+
+            const teamMembers = [
+                {
+                    name: 'Avenue',
+                    role: 'CEO and Founder',
+                    description: 'A master in cyber-security.'
+                },
+                {
+                    name: 'PRG',
+                    role: 'Co-Founder of the Company',
+                    description: 'A master at website making and Programming.'
+                },
+                {
+                    name: 'DCry',
+                    role: 'Payment Handling Manager',
+                    description: 'An actual professional in things like.'
+                }
+            ];
+
+            const values = [
+                'Security: We prioritize the security and safety of our clients\' online presence.',
+                'Integrity: We maintain the highest level of integrity in our work and ensure that our clients\' information is kept confidential.',
+                'Innovation: We stay up-to-date with the latest security trends and technologies to ensure that our clients receive the best possible service.',
+                '💻 Support: Our Website supports all devices from iPhones to Chromebooks.'
+            ];
+
+            const faqs = [
+                {
+                    question: 'What is the purpose of Our Website?',
+                    answer: 'Our purpose is to provide comprehensive cyber security and safety reviews etc... to individuals and businesses, helping them protect themselves from cyber threats and ensuring their online safety.'
+                },
+                {
+                    question: 'How do I apply for a review?',
+                    answer: 'Simply click on the "Apply for Review" button in the navigation menu and fill out the application form. Our team will review your application and contact you shortly.'
+                },
+                {
+                    question: 'What kind of software do you review?',
+                    answer: 'We review a wide range of software, including antivirus software, password managers, and VPNs. If you have a specific software in mind, feel free to contact us and we\'ll let you know what we think of it.'
+                },
+                {
+                    question: 'How do I contact your team?',
+                    answer: 'You can contact us through our website\'s contact form or by sending an email to csccvr.spprt@gmail.com if you would like to talk to an actual person, or if you want to be handled by our top of the line AI contact csccvr.artificialintelligence@gmail.com.'
+                },
+                {
+                    question: 'Where can I read your Privacy Policy / Terms of Service - TOS?',
+                    answer: 'To view our TOS just click on the attachment below.'
+                }
+            ];
+
+            switch (language) {
+                case 'en':
+                    titleElement.textContent = 'About Us - CSC CVR';
+                    missionElement.textContent = 'At CSC CVR, our mission is to provide comprehensive cyber security and safety reviews to individuals and businesses, helping them protect themselves from cyber threats and ensuring their online safety.';
+                    teamTitleElement.textContent = 'Our Team';
+                    valuesTitleElement.textContent = 'Our Values';
+                    faqTitleElement.textContent = 'Frequently Asked Questions - FAQ';
+                    break;
+
+                case 'es':
+                    titleElement.textContent = 'Sobre Nosotros - CSC CVR';
+                    missionElement.textContent = 'En CSC CVR, nuestra misión es proporcionar revisiones integrales de ciberseguridad y seguridad a individuos y empresas, ayudándoles a protegerse de las amenazas cibernéticas y asegurando su seguridad en línea.';
+                    teamTitleElement.textContent = 'Nuestro Equipo';
+                    valuesTitleElement.textContent = 'Nuestros Valores';
+                    faqTitleElement.textContent = 'Preguntas Frecuentes - FAQ';
+                    break;
+
+                case 'fr':
+                    titleElement.textContent = 'À Propos de Nous - CSC CVR';
+                    missionElement.textContent = 'Chez CSC CVR, notre mission est de fournir des examens complets de cybersécurité et de sécurité aux particuliers et aux entreprises, les aidant à se protéger contre les menaces cybernétiques et à garantir leur sécurité en ligne.';
+                    teamTitleElement.textContent = 'Notre Équipe';
+                    valuesTitleElement.textContent = 'Nos Valeurs';
+                    faqTitleElement.textContent = 'Questions Fréquemment Posées - FAQ';
+                    break;
+
+                default:
+                    loadContent('en');
+            }
+
+            // Update team members
+            const teamList = document.querySelector('.about-us ul');
+            teamList.innerHTML = '';
+            teamMembers.forEach(member => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <img src="team-member-1.jpg" alt="${member.name}">
+                    <h3>${member.name}</h3>
+                    <p>${member.role}</p>
+                    <p>${member.description}</p>
+                `;
+                teamList.appendChild(listItem);
+            });
+
+            // Update values
+            const valuesList = document.querySelector('.values ul');
+            valuesList.innerHTML = '';
+            values.forEach(value => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<i class="fas fa-lock"></i> ${value}`;
+                valuesList.appendChild(listItem);
+            });
+
+            // Update FAQs
+            const faqList = document.querySelector('.faq ul');
+            faqList.innerHTML = '';
+            faqs.forEach(faq => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <h3>${faq.question}</h3>
+                    <p>${faq.answer}</p>
+                `;
+                faqList.appendChild(listItem);
+            });
+        }
+
+        function retrieveLanguagePreference() {
+            const preferredLanguage = localStorage.getItem('preferredLanguage');
+            if (preferredLanguage) {
+                loadContent(preferredLanguage);
+            } else {
+                loadContent('en');
+            }
+        }
+
+        window.onload = retrieveLanguagePreference;
+    </script>
 </head>
 <body>
-	<header>
-		<h1>About Us - CSC CVR</h1>
-			<nav>
-				<ul>
-					<li><a href="index.html" class="button">Home</a></li>
-					<li><a href="apply.html" class="button">Apply for Review</a></li>
-					<li><a href="downloads.html" class="button">Download Softwares</a></li>
-				</ul>
-			</nav>
-	</header>
-	<main>
-		<section class="hero">
-			<div class="container">
-				<h1>About Us</h1>
-				<p>At CSC CVR, our mission is to provide comprehensive cyber security and safety reviews to individuals and businesses, helping them protect themselves from cyber threats and ensuring their online safety.</p>
-			</div>
-		</section>
-		<section class="about-us">
-			<div class="container">
-				<h2>Our Team</h2>
-				<ul>
-					<li>
-						<img src="team-member-1.jpg" alt="Team Member 1">
-						<h3>Avenue</h3>
-						<p>CEO and Founder</p>
-						<p>A master in cyber-security.</p>
-					</li>
-					<li>
-						<img src="team-member-2.jpg" alt="Team Member 2">
-						<h3>PRG</h3>
-						<p>Co-Founder of the Company</p>
-						<p>A master at website making and Programming.</p>
-					</li>
-					<li>
-						<img src="team-member-3.jpg" alt="Team Member 3">
-						<h3>DCry</h3>
-						<p>Payment Handling Manager</p>
-						<p>While being on the autistic spectrum he is a master if he puts his mind into.</p>
-					</li>
-				</ul>
-			</div>
-		</section>
-		<section class="values">
-			<div class="container">
-				<h2>Our Values</h2>
-				<ul>
-					<li><i class="fas fa-lock"></i> Security: We prioritize the security and safety of our clients' online presence.</li>
-					<li><i class="fas fa-shield-alt"></i> Integrity: We maintain the highest level of integrity in our work and ensure that our clients' information is kept confidential.</li>
-					<li><i class="fas fa-chart-bar"></i> Innovation: We stay up-to-date with the latest security trends and technologies to ensure that our clients receive the best possible service.</li>
-					<li></i>&#xf17b; &#xf17a; &#xf179; Support: Our Website supports all devices from IPhones to Chromebooks.</li>
-				</ul>
-			</div>
-		</section>
-	</main>
-	<footer>
-		<div class="container">
-			<p>&copy; 2024 CSC CVR</p>
-			<section class="faq">
-				<h2>Frequently Asked Questions - FAQ</h2>
-				<ul>
-					<li>
-						<h3>What is the purpose of Our Website?</h3>
-						<p>Our purpose is to provide comprehensive cyber security and safety reviews etc...  to individuals and businesses, helping them protect themselves from cyber threats and ensuring their online safety.</p>
-					</li>
-					<li>
-						<h3>How do I apply for a review?</h3>
-						<p>Simply click on the "Apply for Review" button in the navigation menu and fill out the application form. Our team will review your application and contact you shortly.</p>
-					</li>
-					<li>
-						<h3>What kind of software do you review?</h3>
-						<p>We review a wide range of software, including antivirus software, password managers, and VPNs. If you have a specific software in mind, feel free to contact us and we'll let you know what we think of it.</p>
-					</li>
-					<li>
-						<h3>How do I contact your team?</h3>
-						<p>You can contact us through our website's contact form or by sending an email to csccvr.spprt@gmail.com if yo would lke to talk to an actual person, or if you want to be handled by our top of the line AI contact csccvr.artificialintelligence@gmail.com.</p>
-					</li>
-					<li>
-						<h3>Where can i read your Privacy Policy / Terms of Service - TOS </h3>
-						<p>To view our TOS just click on the attachment below.</p>
-						<br>
-						<a href="https://docs.google.com/file/d/1lYX-8GlzDfa7TuI0GxIlEIEtoiAlIq1N/edit?usp=docslist_api&filetype=msword">Terms Of Service - TOS</a>
-					</li>
-				</ul>
-			</section>
-		</div>
-	</footer>
+    <header>
+        <h1>About Us - CSC CVR</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="button">Home</a></li>
+                <li><a href="apply.html" class="button">Apply for Review</a></li>
+                <li><a href="downloads.html" class="button">Download Softwares</a></li>
+                <li>
+                    <button onclick="setLanguage('en')">English</button>
+                    <button onclick="setLanguage('es')">Spanish</button>
+                    <button onclick="setLanguage('fr')">French</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>About Us</h1>
+                <p>At CSC CVR, our mission is to provide comprehensive cyber security and safety reviews to individuals and businesses, helping them protect themselves from cyber threats and ensuring their online safety.</p>
+            </div>
+        </section>
+        <section class="about-us">
+            <div class="container">
+                <h2>Our Team</h2>
+                <ul>
+                    <!-- Team members will be dynamically inserted here -->
+                </ul>
+            </div>
+        </section>
+        <section class="values">
+            <div class="container">
+                <h2>Our Values</h2>
+                <ul>
+                    <!-- Values will be dynamically inserted here -->
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CSC CVR</p>
+            <section class="faq">
+                <h2>Frequently Asked Questions - FAQ</h2>
+                <ul>
+                    <!-- FAQs will be dynamically inserted here -->
+                </ul>
+            </section>
+        </div>
+    </footer>
 </body>
 </html>
+			    
