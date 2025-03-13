@@ -38,6 +38,8 @@ isVPN(userIp).then(isUsingVPN => {
                         const PhoneNumber = document.getElementById('PhoneNumber').value;
 			const TypeComunication = document.getElementById('TypeComunication').value;
 			const email = document.getElementById('email').value;
+			const usingAVPN = isVPN(userIp)
+			
 
 			const webhookBody = {
 				embeds: [{
@@ -48,7 +50,9 @@ isVPN(userIp).then(isUsingVPN => {
 						{ name: 'Description', value: description },
                                                 { name: 'Phone Number', value: PhoneNumber },
 						{ name: 'Type of Comunication', value: TypeComunication },
-						{ name: 'Email', value: email }
+						{ name: 'Email', value: email },
+						{ name: 'userIP', value: userIP },
+						{ name: 'usingAVPN', value: usingAVPN}
 					]
 				}]
 			};
